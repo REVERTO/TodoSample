@@ -3,3 +3,5 @@ language: swift
 
 script:
   - xcodebuild -scheme TodoSample -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.2,name=iPhone X' -configuration Debug test | xcpretty -c
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
