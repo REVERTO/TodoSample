@@ -22,15 +22,13 @@ class TodoSampleTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        let dataStore = DataStore()
+        
+        XCTAssert(dataStore.itemsCount() == 0)
+        XCTAssert(dataStore.item(index: 0) == nil)
+        dataStore.insertItem(text: "hello")
+        XCTAssert(dataStore.itemsCount() == 1)
+        XCTAssert(dataStore.item(index: 0) == "hello")
     }
     
 }
